@@ -1,11 +1,11 @@
-CFLAGS=-std=c11 -g -static
+CFLAGS = -std=c11 -g -static
 
-9cc: 9cc.c
+mond: mond.c
 
-test: 9cc
+test: mond
 		./test.sh
 
 clean:
-		rm -f 9cc *.o *~ tmp*
+		rm -f mond *.o *~ tmp*
 
 .PHONY: test clean

@@ -1,11 +1,15 @@
+// #include <ctype.h>
+// #include <stdarg.h>
+// #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+// #include <string.h>
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        fprintf(stderr, "引数の個数が正しくありません\n");
+        fprintf(stderr, "Wrong number of arguments");
         return 1;
     }
 
