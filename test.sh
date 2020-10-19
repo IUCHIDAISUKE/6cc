@@ -20,4 +20,6 @@ assert 1 1
 assert 123 123
 assert 21 "5+20-4"
 assert 41 " 12 + 34 - 5 "
+# assert 123 " 5++-1234"
+assert error "5 + foo"
 echo OK

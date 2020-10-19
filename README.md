@@ -1,4 +1,4 @@
-# C compiler [CC]
+# C compiler [MOND]
 
 ## setup
 
@@ -15,7 +15,7 @@ $ ./mond [command] > tmp.s
 $ cat tmp.s
 $ cc -o tmp tmp.s
 $ ./tmp
-$ echo $? [check ret]
+$ echo $? # check ret
 123 etc..
 ```
 
