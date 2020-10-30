@@ -10,13 +10,18 @@ $ cd ../../mond
 ## run
 
 ```shell
-$ cc -o mond mond.c
+making assembli file
+$ make
 $ ./mond [command] > tmp.s
 $ cat tmp.s
 $ cc -o tmp tmp.s
 $ ./tmp
 $ echo $? # check ret
 123 etc..
+
+run test
+$ make
+$ bash ./test.sh
 ```
 
 ## next goal
