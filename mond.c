@@ -4,14 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 //
 // Tokenizer
 //
 typedef enum
 {
     TK_RESERVED, // Keywords or punctuators
-    TK_NUM,      // Integer literal
+    TK_NUM,      // Integer literals
     TK_EOF,      // End-of-file markers
 } TokenKind;
 
@@ -76,7 +75,7 @@ void expect(char op)
 int expect_number()
 {
     if (token->kind != TK_NUM)
-        error_at(token->str, "expected number");
+        error_at(token->str, "expected a number");
     int val = token->val;
     token = token->next;
     return val;
@@ -128,10 +127,8 @@ Token *tokenize()
             cur->val = strtol(p, &p, 10);
             continue;
         }
-
-        error_at(p, "Invarid token");
+        error_at(p, "invalid token");
     }
-
     new_token(TK_EOF, cur, p);
     return head.next;
 }
@@ -139,7 +136,6 @@ Token *tokenize()
 //
 // Parser
 //
-
 typedef enum
 {
     ND_ADD, // +
@@ -184,6 +180,7 @@ Node *new_num(int val)
 Node *expr();
 Node *mul();
 Node *primary();
+Node *unary();
 
 // expr = mul ("+" mul | "-" mul)*
 Node *expr()
@@ -203,14 +200,14 @@ Node *expr()
 // mul = primary ("*" primary | "/" primary)*
 Node *mul()
 {
-    Node *node = primary();
+    Node *node = unary();
 
     for (;;)
     {
         if (consume('*'))
-            node = new_binary(ND_MUL, node, primary());
+            node = new_binary(ND_MUL, node, unary());
         else if (consume('/'))
-            node = new_binary(ND_DIV, node, primary());
+            node = new_binary(ND_DIV, node, unary());
         else
             return node;
     }
@@ -227,6 +224,15 @@ Node *primary()
     }
 
     return new_num(expect_number());
+}
+
+Node *unary()
+{
+    if (consume('+'))
+        return unary();
+    if (consume('-'))
+        return new_binary(ND_SUB, new_num(0), unary());
+    return primary();
 }
 
 //
@@ -272,7 +278,7 @@ int main(int argc, char *argv[])
     if (argc != 2)
         error("%s: invalid number of arguments", argv[0]);
 
-    // Tokenie and parse.
+    // Tokenize and parse.
     user_input = argv[1];
     token = tokenize();
     Node *node = expr();

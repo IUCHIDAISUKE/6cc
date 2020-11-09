@@ -1,4 +1,6 @@
-# C compiler [MOND]
+# C compiler [mond]
+
+This is C compiler. The name of mond. This means moon in German. I hope it to be a guide that lights up all around like the moon in the dark.
 
 ## setup
 
