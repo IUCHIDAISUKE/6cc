@@ -5,6 +5,7 @@ This is C compiler. The name of mond. This means moon in German. I hope it to be
 ## setup
 
 ```shell
+$ docker build -t compilerbook https://www.sigbus.info/compilerbook/Dockerfile
 $ docker run --rm -it -v $HOME/c_compiler/mond:/mond compilerbook
 $ cd ../../mond
 ```
@@ -33,3 +34,7 @@ $ bash ./test.sh
 - 最適化パスを追加する
 - 浮動小数点数を足す
 - disk5 に移植してみる
+
+## material
+
+- [Compiler Explorer](https://godbolt.org/z/RyNqgE)
