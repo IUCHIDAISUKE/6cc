@@ -1,13 +1,13 @@
-# C compiler [mond]
+# C compiler [6cc]
 
-This is C compiler. The name of mond. This means moon in German. I hope it to be a guide that lights up all around like the moon in the dark.
+This is C compiler. The name of 6cc. This means 4+2=6. :)
 
 ## setup
 
 ```shell
 $docker build -t compilerbook https://www.sigbus.info/compilerbook/Dockerfile
-$docker run --rm -it -v $HOME/c_compiler/mond:/mond compilerbook
-$cd ../../mond
+$docker run --rm -it -v $HOME/c_compiler/6cc:/6cc compilerbook
+$cd ../../6cc
 ```
 
 ## run
@@ -15,7 +15,7 @@ $cd ../../mond
 ```shell
 making assembly file
 $make
-$ ./mond [command] > tmp.s
+$ ./6cc [command] > tmp.s
 $cat tmp.s
 $cc -o tmp tmp.s
 $ ./tmp

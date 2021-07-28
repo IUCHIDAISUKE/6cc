@@ -1,11 +1,12 @@
-CFLAGS = -std=c11 -g -static
+CFLAGS=-std=c11 -g -static
 
-mond: mond.c
+6cc: main.c
+	$(CC) $(CFLAGS) -o $@ $^
 
-test: mond
+test: 6cc
 		./test.sh
 
 clean:
-		rm -f mond *.o *~ tmp*
+		rm -f 6cc *.o *~ tmp*
 
 .PHONY: test clean
