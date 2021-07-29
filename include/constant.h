@@ -15,6 +15,7 @@ struct Token
     Token *next;
     int val;
     char *str;
+    int len;
 };
 
 typedef enum
