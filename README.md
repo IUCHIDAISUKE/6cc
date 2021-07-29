@@ -6,7 +6,7 @@ This is C compiler. The name of 6cc. This means 4+2=6. :)
 
 ```shell
 $docker build -t compilerbook https://www.sigbus.info/compilerbook/Dockerfile
-$docker run --rm -it -v $HOME/6cc:/6cc compilerbook
+$docker run --rm -it -v $HOME/C/6cc:/6cc compilerbook
 $cd ../../6cc
 ```
 

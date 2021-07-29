@@ -1,5 +1,7 @@
 CFLAGS=-std=c11 -g -static
 
+VPATH	= ./src
+
 6cc: main.c
 	$(CC) $(CFLAGS) -o $@ $^
 
